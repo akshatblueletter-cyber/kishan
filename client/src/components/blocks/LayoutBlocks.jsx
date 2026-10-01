@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import BlockRenderer from './BlockRenderer.jsx';
+import Lightbox from '../Lightbox.jsx';
 
 // Grid of cards (Foundation Words, Wisdom, Human Experience, Conversations, Works …).
 export function CardGrid({ block }) {
@@ -60,20 +62,28 @@ export function Timeline({ block }) {
   );
 }
 
-// Book cover + text.
+// Book: front cover, with the back cover (if any) below it, + text.
+// Clicking a cover opens it full-size so the back-cover text can be read.
 export function Book({ block }) {
+  const [zoom, setZoom] = useState(null); // the cover being viewed full-size
+  const covers = [
+    { side: 'front', src: block.image, alt: 'The Journey: From Suffering to Bliss — front cover' },
+    { side: 'back', src: block.backImage, alt: 'The Journey: From Suffering to Bliss — back cover' },
+  ].filter((c) => c.src);
+
   return (
     <div className="b-book">
-      {block.image && (
-        <img
-          className="b-book-cover"
-          src={block.image}
-          alt="The Journey: From Suffering to Bliss — book cover"
-          width="250"
-          height="354"
-          loading="lazy"
-        />
+      {covers.length > 0 && (
+        <div className="b-book-figure">
+          {covers.map((cover) => (
+            <button key={cover.side} type="button" className="b-book-zoom" onClick={() => setZoom(cover)} aria-label={`Enlarge the ${cover.side} cover`}>
+              <img className="b-book-cover" src={cover.src} alt={cover.alt} width="250" height="357" loading="lazy" />
+              <span className="b-book-hint">Click to enlarge</span>
+            </button>
+          ))}
+        </div>
       )}
+      {zoom && <Lightbox src={zoom.src} alt={zoom.alt} onClose={() => setZoom(null)} />}
       <div className="b-book-body">
         <BlockRenderer blocks={block.blocks} />
       </div>
@@ -81,12 +91,12 @@ export function Book({ block }) {
   );
 }
 
-// About intro with photo (placeholder until the client sends one).
+// About intro with photo (placeholder if no photo is set).
 export function Photo({ block }) {
   return (
     <div className="b-photo">
       {block.image ? (
-        <img className="b-photo-img" src={block.image} alt="Dr. Krishan Avtar" width="230" height="290" loading="lazy" />
+        <img className="b-photo-img" src={block.image} alt="Dr. Krishan Avtar" width="230" height="290" />
       ) : (
         <div className="b-photo-placeholder" role="img" aria-label="Photo of Dr. Krishan Avtar (coming soon)">
           Photo coming soon

@@ -361,7 +361,7 @@ export const pages = [
     nextLabel: 'The Journey – PART I',
     blocks: [
       {
-        type: 'book', image: '/images/journey-front-cover.jpg',
+        type: 'book', image: '/images/book-front.jpg', backImage: '/images/book-back.jpg',
         blocks: [
           H3('The Journey: From Suffering to Bliss'),
           EM('In the Light of Sacred Wisdom, Modern Science and Lived Experience'),
@@ -983,7 +983,7 @@ export const pages = [
         'A future work may take the inquiry somewhere entirely new.'
       ),
       {
-        type: 'book', image: '/images/journey-front-cover.jpg',
+        type: 'book', image: '/images/book-front.jpg',
         blocks: [
           H3('The Journey: From Suffering to Bliss'),
           ...P('First major work', 'A journey through suffering, the mind, happiness, bliss, discernment, surrender, Karma, Bhakti, Jnana, death and liberation.'),
@@ -1041,7 +1041,7 @@ export const pages = [
     nextLabel: 'CRISIS SUPPORT',
     blocks: [
       {
-        type: 'photo', image: null,
+        type: 'photo', image: '/images/profile.jpg',
         blocks: [
           H3('Dr. Krishan Avtar'),
           ...P(
@@ -1095,7 +1095,6 @@ export const pages = [
         'It is a place to sit with meaningful questions.'
       ),
     ],
-    notes: ['Photo of Dr. Krishan Avtar needed from client.'],
   },
 
   // ═══════════════════════════════ 22 · CRISIS SUPPORT ═══════════════════════

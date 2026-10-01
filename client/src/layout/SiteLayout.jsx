@@ -5,11 +5,14 @@ import Footer from './Footer.jsx';
 import MenuOverlay from './MenuOverlay.jsx';
 import SearchOverlay from './SearchOverlay.jsx';
 import { UIContext } from '../context/UIContext.jsx';
+import { DEFAULT_META, PageMetaContext } from '../context/PageMetaContext.jsx';
 
 // Header + page + footer, plus the ☰ menu and search overlays.
 export default function SiteLayout() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [meta, setMeta] = useState(DEFAULT_META); // current page title + subtitle (shown in the header)
+  const metaValue = useMemo(() => ({ meta, setMeta }), [meta]);
   const { pathname, search, hash } = useLocation();
 
   // Close overlays and go to the top whenever the page changes (anchors scroll themselves).
@@ -53,11 +56,13 @@ export default function SiteLayout() {
 
   return (
     <UIContext.Provider value={ui}>
+      <PageMetaContext.Provider value={metaValue}>
       <div className="site">
         <a href="#main" className="skip-link">
           Skip to content
         </a>
         <Header
+          meta={meta}
           menuOpen={menuOpen}
           searchOpen={searchOpen}
           onToggleMenu={() => (menuOpen ? setMenuOpen(false) : ui.openMenu())}
@@ -70,6 +75,7 @@ export default function SiteLayout() {
         </main>
         <Footer />
       </div>
+      </PageMetaContext.Provider>
     </UIContext.Provider>
   );
 }

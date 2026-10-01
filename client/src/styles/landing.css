@@ -1,43 +1,31 @@
 /* ─────────────── Page 1 · Landing ───────────────
-   Two images side by side · centre card · button bottom centre.
-   Phones: the two images crossfade. */
+   Full-width mountain background · centre card · button bottom centre. */
 .landing {
   position: relative;
   height: calc(100vh - var(--header-h));
   min-height: 620px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   overflow: hidden;
-  background: var(--panel);
-}
-.landing-img {
+  background-color: #e9c48e; /* warm tone shown while the image loads */
   background-size: cover;
-  background-position: center;
-}
-.landing-divider {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 4px;
-  transform: translateX(-50%);
-  background: var(--bg);
+  background-position: center 60%; /* keep the mountain range in view */
+  background-repeat: no-repeat;
 }
 .landing-card {
   position: absolute;
   left: 50%;
-  top: 44%;
+  top: 40%;
   transform: translate(-50%, -50%);
   width: min(760px, calc(100% - 32px));
   padding: 50px 56px;
   border-radius: 32px;
-  background: rgba(250, 248, 243, 0.94);
+  background: rgba(250, 248, 243, 0.88);
+  backdrop-filter: blur(4px);
   text-align: center;
   font-family: var(--serif);
   font-size: 48px;
   line-height: 1.2;
   color: var(--panel);
-  box-shadow: 0 30px 60px -40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 30px 60px -40px rgba(80, 50, 10, 0.55);
 }
 .landing-card .is-last {
   font-style: italic;
@@ -59,7 +47,7 @@
   align-items: center;
   gap: 16px;
   white-space: nowrap;
-  box-shadow: 0 18px 30px -16px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 18px 30px -16px rgba(60, 35, 5, 0.5);
   transition: transform 0.2s;
 }
 .landing-cta:hover {
@@ -78,21 +66,11 @@
 
 @media (max-width: 900px) {
   .landing {
-    display: block;
     min-height: 560px;
-  }
-  .landing-img {
-    position: absolute;
-    inset: 0;
-  }
-  .landing-img-2 {
-    animation: landing-fade 14s ease-in-out infinite;
-  }
-  .landing-divider {
-    display: none;
+    background-position: 40% center;
   }
   .landing-card {
-    top: 42%;
+    top: 40%;
     padding: 28px 22px;
     border-radius: 24px;
     font-size: 30px;
@@ -103,24 +81,5 @@
     justify-content: space-between;
     font-size: 15px;
     padding-left: 22px;
-  }
-}
-@keyframes landing-fade {
-  0%,
-  40% {
-    opacity: 0;
-  }
-  50%,
-  90% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .landing-img-2 {
-    animation: none;
-    opacity: 0;
   }
 }

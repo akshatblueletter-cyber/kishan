@@ -55,8 +55,6 @@ export default function StepLayout({ page }) {
         <p className="lp-num" aria-hidden="true">
           {num}
         </p>
-        <h1 className="lp-title">{page.title}</h1>
-        {page.subtitle && <p className="lp-sub">{page.subtitle}</p>}
 
         {/* Phones: a progress line + “All steps” instead of the full journey map */}
         {page.order && (

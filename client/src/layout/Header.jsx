@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import Icon from '../components/Icon.jsx';
 
-// Fixed on every page: logo · title + subtitle · search · ☰
-export default function Header({ menuOpen, searchOpen, onToggleMenu, onToggleSearch }) {
+// On every page: logo · current page title + subtitle · search · ☰
+// The centre text changes with the page (it is that page’s main heading).
+export default function Header({ meta, menuOpen, searchOpen, onToggleMenu, onToggleSearch }) {
   return (
     <header className="header">
       {/* The logo is the name itself */}
@@ -10,10 +11,10 @@ export default function Header({ menuOpen, searchOpen, onToggleMenu, onToggleSea
         <span className="logo-line">Dr. Krishan</span> <span className="logo-line">Avtar</span>
       </Link>
 
-      <Link to="/" className="header-brand">
-        <span className="header-title">Understanding the Human Journey</span>
-        <span className="header-subtitle">Ancient Wisdom · Modern Science · Lived Experience</span>
-      </Link>
+      <div className="header-brand">
+        <h1 className="header-title">{meta.title}</h1>
+        {meta.subtitle && <p className="header-subtitle">{meta.subtitle}</p>}
+      </div>
 
       <div className="header-actions">
         <button

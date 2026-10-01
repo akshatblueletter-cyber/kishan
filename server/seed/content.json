@@ -839,7 +839,8 @@
     "blocks": [
       {
         "type": "book",
-        "image": "/images/journey-front-cover.jpg",
+        "image": "/images/book-front.jpg",
+        "backImage": "/images/book-back.jpg",
         "blocks": [
           {
             "type": "heading",
@@ -3139,7 +3140,7 @@
       },
       {
         "type": "book",
-        "image": "/images/journey-front-cover.jpg",
+        "image": "/images/book-front.jpg",
         "blocks": [
           {
             "type": "heading",
@@ -3323,7 +3324,7 @@
     "blocks": [
       {
         "type": "photo",
-        "image": null,
+        "image": "/images/profile.jpg",
         "blocks": [
           {
             "type": "heading",
@@ -3473,9 +3474,6 @@
           "It is a place to sit with meaningful questions."
         ]
       }
-    ],
-    "notes": [
-      "Photo of Dr. Krishan Avtar needed from client."
     ]
   },
   {

@@ -26,7 +26,7 @@ export const BLOCK_TYPES = [
   'guideRows',     // { rows: [{ label, links: [{ text, href }] }] }
   'timeline',      // { items: [{ title, text }] }
   'contrast',      // { connector, items: [{ left, right }] }       “left is not the same as right”
-  'book',          // { image, blocks: [] }                      cover image + text
+  'book',          // { image, backImage?, blocks: [] }          front (+ back) cover + text
   'photo',         // { image?, blocks: [] }                     About intro with photo
   'contactForm',   // { subjects: [text] }
   'searchBox',     // { placeholder, suggestionsLabel, suggestions: [text] }

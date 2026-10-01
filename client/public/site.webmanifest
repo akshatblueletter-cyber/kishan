@@ -1,0 +1,12 @@
+{
+  "name": "Dr. Krishan Avtar · Understanding the Human Journey",
+  "short_name": "Krishan Avtar",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#1D3A40",
+  "background_color": "#FAF8F3",
+  "display": "standalone",
+  "start_url": "/"
+}
