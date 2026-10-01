@@ -1,0 +1,174 @@
+/* ─────────────── Site shell ─────────────── */
+.site {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.site-main {
+  flex: 1;
+}
+
+/* ─────────────── Header ───────────────
+   Logo left · title + subtitle centre · search + ☰ right */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: var(--header-h);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 0 40px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Logo = the name “Dr. Krishan Avtar” (text only) */
+.logo {
+  justify-self: start;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--panel);
+  line-height: 1.25;
+}
+.logo:hover {
+  color: var(--panel-2);
+}
+
+.header-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  text-align: center;
+}
+.header-title {
+  font-family: var(--serif);
+  font-size: 27px;
+  line-height: 1.05;
+  color: var(--panel);
+}
+.header-subtitle {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.header-actions {
+  justify-self: end;
+  display: flex;
+  gap: 8px;
+}
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--soft);
+  color: var(--panel);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.icon-btn:hover {
+  background: var(--soft-teal);
+}
+.icon-btn[aria-expanded='true'] {
+  background: var(--panel);
+  color: #fff;
+}
+
+/* ─────────────── Footer ─────────────── */
+.footer {
+  background: var(--footer);
+  color: var(--footer-text);
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.footer-crisis {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: var(--footer-2);
+  color: #fff;
+  font-size: 14px;
+}
+.footer-crisis-badge {
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--peach);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+}
+.footer-crisis a:hover {
+  text-decoration: underline;
+}
+.footer-links {
+  display: flex;
+  gap: 22px;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+.footer-links a:hover,
+.footer-links a[aria-current='page'] {
+  color: #fff;
+}
+.footer-bottom {
+  border-top: 1px solid var(--footer-line);
+  padding-top: 16px;
+  font-size: 13px;
+}
+
+/* ─────────────── Responsive (full mobile layout comes in step 7) ─────────────── */
+@media (max-width: 900px) {
+  .header {
+    padding: 0 16px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 12px;
+  }
+  .header-brand {
+    min-width: 0;
+  }
+  .header-title {
+    font-size: 20px;
+  }
+  .header-subtitle {
+    display: none;
+  }
+  /* Phones: the name sits on two lines so the header title still fits */
+  .logo {
+    display: flex;
+    flex-direction: column;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+  }
+  .footer {
+    padding: 28px 16px;
+  }
+}
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 16px;
+  }
+}

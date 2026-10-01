@@ -1,0 +1,348 @@
+/* ─────────────────────────────────────────────────────────────
+   Option B “The Path” — step layout: left panel · content · next
+   ───────────────────────────────────────────────────────────── */
+.step {
+  display: grid;
+  grid-template-columns: var(--panel-w) minmax(0, 1fr);
+  align-items: stretch;
+  min-height: calc(100vh - var(--header-h));
+}
+
+/* ── Left panel ── */
+.lp {
+  background: var(--panel);
+  color: var(--panel-text);
+  padding: 56px 48px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.lp-kicker {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: var(--panel-muted);
+}
+.lp-num {
+  font-family: var(--serif);
+  font-size: 150px;
+  line-height: 0.85;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--peach);
+}
+.lp-title {
+  margin-top: 6px;
+  font-size: 44px;
+  line-height: 1.05;
+  color: #fff;
+}
+.lp-sub {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--peach);
+}
+.lp-progress {
+  display: none; /* phones only */
+}
+
+/* ── Journey map (navigation 1) ── */
+.map {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--panel-line);
+}
+.map-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--panel-muted);
+  margin-bottom: 12px;
+}
+.map-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.map-list li {
+  position: relative;
+}
+.map-list li + li::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: -6px;
+  height: 12px;
+  border-left: 1.5px solid #3f6166;
+}
+.map-list a {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 4px 0;
+  font-size: 13.5px;
+  color: #7fa19c;
+  transition: color 0.15s;
+}
+.map-list a:hover {
+  color: #fff;
+}
+.map-list i {
+  justify-self: center;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1.5px solid #5e8580;
+  background: var(--panel);
+}
+.map-list .is-done a {
+  color: #c9dad6;
+}
+.map-list .is-done i {
+  background: #7fa19c;
+  border-color: #7fa19c;
+}
+.map-list .is-current a {
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+}
+.map-list .is-current i {
+  width: 18px;
+  height: 18px;
+  background: var(--peach);
+  border-color: var(--peach);
+  box-shadow: 0 0 0 5px rgba(242, 184, 128, 0.2);
+}
+
+/* ── Content area ── */
+.rp {
+  min-width: 0;
+  padding: 64px 80px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Bottom navigation: back button + Next step card ── */
+.bnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 34px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+.back-btn {
+  height: 54px;
+  padding: 0 22px;
+  border-radius: 14px;
+  border: 1.5px solid var(--panel);
+  color: var(--panel);
+  font-size: 15px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.15s, color 0.15s;
+}
+.back-btn:hover {
+  background: var(--panel);
+  color: #fff;
+}
+.next-card {
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: 1fr 64px;
+  gap: 4px 24px;
+  align-items: center;
+  min-width: 420px;
+  padding: 20px 22px 20px 28px;
+  border-radius: 20px;
+  background: var(--peach);
+  color: var(--ink);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.next-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -18px rgba(29, 58, 64, 0.6);
+}
+.next-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #6e4217;
+}
+.next-title {
+  grid-column: 1;
+  font-family: var(--serif);
+  font-size: 26px;
+  line-height: 1.1;
+}
+.next-arrow {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--panel);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Loading / error ── */
+.page-status {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 96px 40px;
+  color: var(--body);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.page-status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--peach);
+  animation: pulse 1s ease-in-out infinite alternate;
+}
+@keyframes pulse {
+  to {
+    opacity: 0.3;
+  }
+}
+
+/* ── Shared buttons & chips ── */
+.btn-dark {
+  height: 54px;
+  padding: 0 26px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--panel);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.btn-dark:hover {
+  background: var(--panel-2);
+}
+.btn-dark:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.chip {
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--panel);
+  font-size: 14px;
+  font-weight: 700;
+}
+.chip:hover {
+  border-color: var(--peach);
+  background: var(--soft-peach);
+}
+
+/* ─────────────── Tablet ─────────────── */
+@media (max-width: 1200px) {
+  :root {
+    --panel-w: 360px;
+  }
+  .lp {
+    padding: 48px 32px;
+  }
+  .lp-num {
+    font-size: 110px;
+  }
+  .lp-title {
+    font-size: 36px;
+  }
+  .rp {
+    padding: 56px 48px 40px;
+  }
+  .next-card {
+    min-width: 0;
+  }
+}
+
+/* ─────────────── Phones: left panel becomes a top bar ─────────────── */
+@media (max-width: 900px) {
+  .step {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .lp {
+    padding: 28px 16px 24px;
+    gap: 10px;
+  }
+  .lp-num {
+    display: none;
+  }
+  .lp-title {
+    font-size: 32px;
+    margin-top: 0;
+  }
+  .lp-sub {
+    font-size: 20px;
+  }
+  .lp .map {
+    display: none; /* the full journey map lives in the ☰ menu on phones */
+  }
+  .lp-progress {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 8px;
+  }
+  .lp-bar {
+    flex: 1;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--panel-line);
+    overflow: hidden;
+  }
+  .lp-bar span {
+    display: block;
+    height: 100%;
+    background: var(--peach);
+  }
+  .lp-all {
+    border: 1px solid var(--panel-line);
+    background: transparent;
+    color: var(--panel-text);
+    border-radius: 10px;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .rp {
+    padding: 32px 16px 32px;
+  }
+  .bnav {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+  .next-card {
+    margin-left: 0;
+    grid-template-columns: 1fr 52px;
+    padding: 18px 18px 18px 22px;
+  }
+  .next-title {
+    font-size: 22px;
+  }
+  .next-arrow {
+    width: 52px;
+    height: 52px;
+  }
+  .back-btn {
+    justify-content: center;
+  }
+}

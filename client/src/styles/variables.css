@@ -1,0 +1,36 @@
+/* ─────────────────────────────────────────────────────────────
+   Option B · “The Path” — design tokens (exact values from the PDF)
+   ───────────────────────────────────────────────────────────── */
+:root {
+  /* Colours */
+  --panel: #1D3A40;        /* left panel, dark buttons, headings */
+  --panel-2: #244850;      /* boxes inside the dark panel */
+  --panel-line: #36575C;   /* dividers on the dark panel */
+  --panel-text: #EAF1EE;   /* text on the dark panel */
+  --panel-muted: #A9C2BE;  /* small labels on the dark panel */
+  --peach: #F2B880;        /* Next step card, current step, highlights */
+  --peach-text: #9A5B24;   /* numbers 01/02, small labels */
+  --bg: #FAF8F3;           /* page background */
+  --ink: #1B2A2E;          /* main text */
+  --body: #4B5A5C;         /* paragraphs */
+  --muted: #7A8787;        /* small grey text */
+  --line: #E3E0D6;         /* dividers & borders */
+  --soft: #EFEBE2;         /* icon buttons, soft fills */
+  --soft-teal: #E4EEEA;    /* quotes, safety, reveal panels */
+  --soft-peach: #FFF1E2;   /* reflection / practice / pause boxes */
+  --footer: #16302F;       /* footer background */
+  --footer-2: #224542;     /* crisis pill background */
+  --footer-line: #2C4C49;
+  --footer-text: #B9CCC8;
+
+  /* Fonts */
+  --serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+  --sans: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Sizes */
+  --header-h: 84px;
+  --panel-w: 480px;
+  --radius-sm: 12px;
+  --radius: 18px;
+  --radius-lg: 24px;
+}
