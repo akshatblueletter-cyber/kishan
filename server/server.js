@@ -21,11 +21,21 @@ const isProd = process.env.NODE_ENV === 'production';
 app.set('trust proxy', 1);
 app.disable('x-powered-by');
 
-// Allowed frontend origins (comma-separated in .env): the local Vite app and the deployed client.
+// Allowed frontend origins (comma-separated in .env / Render), e.g.
+//   CLIENT_URL=https://krishanavtar.vercel.app,https://krishanavtar-*-akshat-workspace.vercel.app,http://localhost:5173
+// • “https://” is added automatically if it was left out
+// • a trailing “/” is ignored
+// • “*” matches any part of the address (covers every Vercel preview deployment)
 const allowedOrigins = (process.env.CLIENT_URL || 'http://localhost:5173')
   .split(',')
-  .map((o) => o.trim().replace(/\/$/, ''))
-  .filter(Boolean);
+  .map((o) => o.trim().replace(/\/+$/, ''))
+  .filter(Boolean)
+  .map((o) => (/^https?:\/\//i.test(o) ? o : `https://${o}`).toLowerCase());
+
+const originPatterns = allowedOrigins.map(
+  (o) => new RegExp(`^${o.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '[a-z0-9-]+')}$`)
+);
+const isAllowedOrigin = (origin) => originPatterns.some((re) => re.test(origin.toLowerCase()));
 
 app.use(helmet()); // secure HTTP headers
 app.use(compression()); // gzip responses
@@ -33,7 +43,7 @@ app.use(
   cors({
     origin(origin, cb) {
       // Allow same-origin / server-to-server requests (no Origin header) and the listed frontends.
-      if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
+      if (!origin || isAllowedOrigin(origin)) return cb(null, true);
       cb(null, false);
     },
     methods: ['GET', 'POST'],
