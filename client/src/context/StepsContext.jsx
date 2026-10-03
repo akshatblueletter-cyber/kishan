@@ -32,6 +32,12 @@ export const stepLabel = (step) => (step.slug === 'home' ? 'Home' : step.title);
 // Order of the ☰ menu sections (matches the `group` field in the database).
 export const GROUPS = ['Begin', 'The Journey', 'Explore', 'More'];
 
+// Where the “Previous step” card of a page leads: the step before (none on step 1).
+export function prevStepOf(page, steps) {
+  if (!page?.order || page.order <= 1 || !steps.length) return null;
+  return steps.find((s) => s.order === page.order - 1) || null;
+}
+
 // Where the “Next step” card of a page leads: the following step,
 // and from the last step back to step 2 (“Begin your journey”).
 export function nextStepOf(page, steps) {

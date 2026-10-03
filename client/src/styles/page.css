@@ -113,40 +113,90 @@
   gap: 20px;
 }
 
-/* ── Bottom navigation: back button + Next step card ── */
+/* ── Bottom navigation: ← Previous step · extra button (middle) · Next step → ── */
 .bnav {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   gap: 16px;
-  flex-wrap: wrap;
   margin-top: 34px;
   padding-top: 30px;
   border-top: 1px solid var(--line);
 }
-.back-btn {
-  height: 54px;
-  padding: 0 22px;
-  border-radius: 14px;
-  border: 1.5px solid var(--panel);
+.prev-card {
+  flex: 0 1 380px; /* original size: up to 380px */
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 4px 18px;
+  align-items: center;
+  padding: 18px 24px 18px 18px;
+  border-radius: 20px;
+  border: 1.5px solid #c9dcd5;
+  background: var(--soft-teal);
+  color: var(--ink);
+  transition: background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.prev-card:hover {
+  background: #d7e7e1;
+  border-color: var(--panel);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -18px rgba(29, 58, 64, 0.5);
+}
+.prev-arrow {
+  grid-row: 1 / 3;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--panel);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.prev-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #3f6166;
+}
+.prev-title {
+  grid-column: 2;
+  font-family: var(--serif);
+  font-size: 21px;
+  line-height: 1.15;
   color: var(--panel);
+}
+.back-btn {
+  margin-inline: auto;
+  flex-shrink: 0;
+  white-space: nowrap;
+  height: 54px;
+  padding: 0 24px;
+  border-radius: 14px;
+  background: var(--panel);
+  color: #fff;
   font-size: 15px;
   font-weight: 800;
   display: inline-flex;
   align-items: center;
-  transition: background 0.15s, color 0.15s;
+  box-shadow: 0 10px 22px -14px rgba(29, 58, 64, 0.7);
+  transition: background 0.15s, transform 0.15s;
 }
 .back-btn:hover {
-  background: var(--panel);
-  color: #fff;
+  background: var(--panel-2);
+  transform: translateY(-2px);
+}
+/* No middle button: the empty slot pushes Next to the right */
+.bnav > span:empty {
+  flex: 1;
 }
 .next-card {
-  margin-left: auto;
+  flex: 0 1 420px; /* original size: up to 420px */
+  min-width: 0;
   display: grid;
   grid-template-columns: 1fr 64px;
   gap: 4px 24px;
   align-items: center;
-  min-width: 420px;
   padding: 20px 22px 20px 28px;
   border-radius: 20px;
   background: var(--peach);
@@ -252,9 +302,6 @@
   .rp {
     padding: 56px 48px 40px;
   }
-  .next-card {
-    min-width: 0;
-  }
 }
 
 /* ─────────────── Phones: left panel becomes a top bar ─────────────── */
@@ -303,12 +350,36 @@
   .rp {
     padding: 32px 16px 32px;
   }
+  /* Phones: stacked — Next on top, then the extra button, then Previous */
   .bnav {
+    display: flex;
     flex-direction: column-reverse;
     align-items: stretch;
+    gap: 12px;
+  }
+  .bnav > span:empty {
+    display: none;
+  }
+  .prev-card,
+  .next-card {
+    flex: none;
+    max-width: none;
+  }
+  .back-btn {
+    margin-inline: 0;
+  }
+  .prev-card {
+    grid-template-columns: 44px 1fr;
+    padding: 14px 18px 14px 14px;
+  }
+  .prev-arrow {
+    width: 44px;
+    height: 44px;
+  }
+  .prev-title {
+    font-size: 18px;
   }
   .next-card {
-    margin-left: 0;
     grid-template-columns: 1fr 52px;
     padding: 18px 18px 18px 22px;
   }

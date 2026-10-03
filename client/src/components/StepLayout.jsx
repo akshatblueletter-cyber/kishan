@@ -4,10 +4,10 @@ import JourneyMap from './JourneyMap.jsx';
 import Icon from './Icon.jsx';
 import BlockRenderer from './blocks/BlockRenderer.jsx';
 import { AccordionContext, annotateBlocks } from './blocks/accordionState.js';
-import { nextStepOf, stepPath, useSteps } from '../context/StepsContext.jsx';
+import { nextStepOf, prevStepOf, stepLabel, stepPath, useSteps } from '../context/StepsContext.jsx';
 import { useUI } from '../context/UIContext.jsx';
 
-// Where a page’s optional left button (backLabel) leads.
+// Where a page’s optional extra button (backLabel, shown in the middle) leads.
 const BACK_LINKS = {
   'Explore a Question': '/what-brings-you-here',
 };
@@ -44,6 +44,7 @@ export default function StepLayout({ page }) {
 
   const total = steps.length || 23;
   const num = page.order ? String(page.order).padStart(2, '0') : '+';
+  const prev = prevStepOf(page, steps);
   const next = nextStepOf(page, steps);
   const back = page.backLabel && BACK_LINKS[page.backLabel];
   const isLast = page.order === total;
@@ -76,8 +77,22 @@ export default function StepLayout({ page }) {
           <BlockRenderer blocks={blocks} />
         </AccordionContext.Provider>
 
-        {(back || next) && (
+        {(prev || back || next) && (
           <nav className="bnav" aria-label="Page navigation">
+            {/* Left: previous step */}
+            {prev ? (
+              <Link to={stepPath(prev.slug)} className="prev-card">
+                <span className="prev-arrow">
+                  <Icon name="back" size={20} />
+                </span>
+                <span className="prev-label">PREVIOUS STEP</span>
+                <span className="prev-title">{stepLabel(prev)}</span>
+              </Link>
+            ) : (
+              <span />
+            )}
+
+            {/* Middle: optional extra button (e.g. “Explore a Question” on step 2) */}
             {back ? (
               <Link to={back} className="back-btn">
                 {page.backLabel}
@@ -85,7 +100,9 @@ export default function StepLayout({ page }) {
             ) : (
               <span />
             )}
-            {next && page.nextLabel && (
+
+            {/* Right: next step */}
+            {next && page.nextLabel ? (
               <Link to={stepPath(next.slug)} className="next-card">
                 <span className="next-label">{isLast ? 'BEGIN AGAIN' : 'NEXT STEP'}</span>
                 <span className="next-title">{page.nextLabel}</span>
@@ -93,6 +110,8 @@ export default function StepLayout({ page }) {
                   <Icon name="arrow" size={22} />
                 </span>
               </Link>
+            ) : (
+              <span />
             )}
           </nav>
         )}
