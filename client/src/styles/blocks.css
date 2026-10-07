@@ -267,6 +267,24 @@ a.b-guide-link:hover {
 .acc-panel[hidden] {
   display: none;
 }
+/* accordion with an illustration: text left, image right */
+.acc-panel.has-image:not([hidden]) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 36px;
+  align-items: start;
+}
+.acc-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+.acc-panel.has-image .b-image {
+  margin: 4px 0 0;
+  position: sticky;
+  top: 110px;
+}
 .acc-panel .b-p {
   font-size: 16.5px;
 }
@@ -764,6 +782,39 @@ a.b-guide-link:hover {
 .b-book-zoom:focus-visible .b-book-hint {
   opacity: 1;
 }
+/* Illustration (e.g. under a chapter title) */
+.b-image {
+  margin: 6px 0 4px;
+  display: flex;
+  justify-content: center;
+}
+.b-image-btn {
+  position: relative;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  border-radius: var(--radius-lg);
+}
+.b-image img {
+  width: 340px;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 28px 48px -26px rgba(80, 50, 10, 0.55);
+  transition: transform 0.2s;
+}
+.b-image-btn:hover img {
+  transform: translateY(-3px);
+}
+.b-image-btn:hover .b-book-hint,
+.b-image-btn:focus-visible .b-book-hint {
+  opacity: 1;
+}
+
 /* Full-size image view */
 .lightbox {
   position: fixed;
@@ -1029,6 +1080,10 @@ a.b-guide-link:hover {
     grid-template-columns: 1fr;
     gap: 10px;
   }
+  .acc-panel.has-image:not([hidden]) {
+    grid-template-columns: minmax(0, 1fr) 200px;
+    gap: 28px;
+  }
 }
 @media (max-width: 900px) {
   .b-lines,
@@ -1052,6 +1107,25 @@ a.b-guide-link:hover {
   }
   .acc-panel {
     padding: 0 0 22px 40px;
+  }
+  /* phones: illustration above the text */
+  .acc-panel.has-image:not([hidden]) {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .acc-panel.has-image .b-image {
+    position: static;
+    order: -1;
+    margin: 0 0 0 -40px; /* use the full width, not just the indented text column */
+  }
+  .acc-panel.has-image .b-image-btn {
+    width: 85%;
+    max-width: 380px;
+  }
+  .acc-panel.has-image .b-image img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-position: center 40%;
   }
   .b-quote {
     font-size: 22px;

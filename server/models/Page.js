@@ -10,7 +10,7 @@ export const BLOCK_TYPES = [
   'questionLinks', // { items: [{ text, href? }] }               page 2 question links
   'navLinks',      // { label?, items: [{ text, href? }] }       Go deeper, Explore…
   'pills',         // { items: [text] }                          Ancient Wisdom · Modern Science · Lived Experience
-  'accordion',     // { question, open?, blocks: [] }            numbered click-to-open row
+  'accordion',     // { question, open?, image?, blocks: [] }    numbered click-to-open row (image = { src, alt }, shown right of the text)
   'group',         // { label, blocks: [] }                      page 4: “I am…” label + accordion
   'reveal',        // { label, blocks: [] }                      “Explore” button inside an accordion
   'flow',          // { label?, items: [text] }                  Pain → Suffering → …
@@ -30,6 +30,7 @@ export const BLOCK_TYPES = [
   'photo',         // { image?, blocks: [] }                     About intro with photo
   'contactForm',   // { subjects: [text] }
   'searchBox',     // { placeholder, suggestionsLabel, suggestions: [text] }
+  'image',         // { src, alt }                               illustration (e.g. under a chapter title)
   'pending',       // { text }                                   awaiting client input (not shown publicly)
 ];
 

@@ -2,7 +2,7 @@ import { Heading, Paragraph, Lines, List, Emphasis, Pills, Pending } from './Tex
 import { QuestionLinks, NavLinks, GuideRows } from './LinkBlocks.jsx';
 import { Accordion, Group, Reveal } from './InteractiveBlocks.jsx';
 import { Flow, Reflection, Quote, Steps, Safety, Emergency, Contrast } from './BoxBlocks.jsx';
-import { CardGrid, Columns, Stats, Timeline, Book, Photo } from './LayoutBlocks.jsx';
+import { CardGrid, Columns, Stats, Timeline, Book, Photo, ImageBlock } from './LayoutBlocks.jsx';
 import { ContactForm, SearchBox } from './FormBlocks.jsx';
 
 // Block type (as stored in MongoDB) → React component.
@@ -33,6 +33,7 @@ const COMPONENTS = {
   timeline: Timeline,
   book: Book,
   photo: Photo,
+  image: ImageBlock,
   contactForm: ContactForm,
   searchBox: SearchBox,
 };

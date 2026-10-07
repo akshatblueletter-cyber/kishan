@@ -986,7 +986,11 @@
               "What might this experience be asking me to understand?"
             ]
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-1.jpg",
+          "alt": "A figure meditating in golden light above mountains, a glowing path flowing from the heart"
+        }
       },
       {
         "type": "heading",
@@ -1023,7 +1027,11 @@
             "type": "paragraph",
             "text": "Discernment begins when we stop treating every aspect of an experience as equally within our control."
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-2.jpg",
+          "alt": "A meditating figure on a rock with glowing roots, surrounded by people and clouds in golden light"
+        }
       },
       {
         "type": "heading",
@@ -1065,7 +1073,11 @@
             "text": "Pain is unavoidable. Suffering is optional.",
             "note": "This is an invitation to inquiry, not a denial of genuine suffering."
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-3.jpg",
+          "alt": "A woman meditating on a mountain peak in golden light, a dark cloud of worry drifting away"
+        }
       },
       {
         "type": "heading",
@@ -1104,7 +1116,11 @@
             "type": "emphasis",
             "text": "What has this come to teach me?"
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-4.jpg",
+          "alt": "A figure meditating on a rock in golden light, ringed by glowing lotuses, a stream of light flowing into still water"
+        }
       }
     ]
   },
@@ -1163,7 +1179,11 @@
               "Stay with the question."
             ]
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-5.jpg",
+          "alt": "A meditating figure with a radiant heart, surrounded by glowing spheres holding a lotus, books, a mirror, a mind and flowing wind"
+        }
       },
       {
         "type": "heading",
@@ -1204,7 +1224,11 @@
             "type": "paragraph",
             "text": "It is to recognise that we can observe its movement."
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-6.jpg",
+          "alt": "A calm meditating figure amid swirling clouds of thought: a storm, a wave, a broken heart, a clock and an open doorway"
+        }
       },
       {
         "type": "heading",
@@ -1250,7 +1274,11 @@
             "type": "emphasis",
             "text": "The space between feeling and action can become a place of discernment."
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-7.jpg",
+          "alt": "A meditating figure in golden light, surrounded by clouds of fear, anger and grief, with glowing lotuses blooming below"
+        }
       },
       {
         "type": "heading",
@@ -1287,7 +1315,11 @@
             "type": "emphasis",
             "text": "How much of my present life is still being governed by something that happened in the past?"
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-8.jpg",
+          "alt": "A robed figure walking through a glowing doorway towards a sunlit valley, leaving behind figures weighed down by anger and stone"
+        }
       }
     ]
   },
@@ -1335,7 +1367,11 @@
             "type": "emphasis",
             "text": "Is happiness only a response to favourable circumstances, or can there be a deeper form of wellbeing?"
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-9.jpg",
+          "alt": "A meditating figure at the centre of glowing circles showing treasure, a crown, a trophy and a summit, a path of light winding below"
+        }
       },
       {
         "type": "heading",
@@ -1371,7 +1407,11 @@
             "type": "paragraph",
             "text": "The experience invites us to ask what lies beneath our ordinary search for pleasure."
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-10.jpg",
+          "alt": "A meditating figure beneath three golden arches of love, nature and music, linked by light to scenes of couples, family and a lotus"
+        }
       },
       {
         "type": "heading",
@@ -1429,7 +1469,11 @@
               "Which state is present in this moment?"
             ]
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-11.jpg",
+          "alt": "A golden landscape rising in layers, from flowers and a violin by a stream, to a figure resting under a tree, to a figure meditating beneath the sun"
+        }
       }
     ]
   },
@@ -1475,7 +1519,11 @@
               "What lasts, and what does not?"
             ]
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-12.jpg",
+          "alt": "Waterfalls flowing down through three glowing circles, a mountain, a lotus and a stream, into a calm sea at sunset"
+        }
       },
       {
         "type": "heading",
@@ -1508,7 +1556,11 @@
             "type": "quote",
             "text": "I am Yours."
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-13.jpg",
+          "alt": "A crumbling stone fist beside an open hand of stone, water pouring into the open hand from a golden lotus above"
+        }
       },
       {
         "type": "heading",
@@ -1541,7 +1593,11 @@
               "We accept that the outcome is not entirely ours to command."
             ]
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-14.jpg",
+          "alt": "A figure meditating with a glowing heart, a chariot and archers in the clouds, a hand releasing leaves and a stairway leading to light"
+        }
       },
       {
         "type": "heading",
@@ -1574,7 +1630,11 @@
             "type": "quote",
             "text": "Oneness with the Ishta."
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-15.jpg",
+          "alt": "A devotee holding a glowing heart, surrounded by offerings of fruit, flowers and lamps, with a flute and a heart of light above"
+        }
       },
       {
         "type": "heading",
@@ -1626,7 +1686,11 @@
             "type": "paragraph",
             "text": "It is intended to become lived recognition."
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-16.jpg",
+          "alt": "A snake and a coiled rope lying on a path by a lit lamp among old ruins, a meditating figure glowing in the distance"
+        }
       },
       {
         "type": "heading",
@@ -1667,7 +1731,11 @@
               "Notice five things for which you can genuinely feel grateful."
             ]
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-17.jpg",
+          "alt": "A cracked clay pot pouring golden light upwards into a lotus, a heart and a meditating figure, beside a stream with lotuses"
+        }
       },
       {
         "type": "heading",
@@ -1753,7 +1821,11 @@
             "type": "emphasis",
             "text": "It is about bringing awareness into what is already being lived."
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-18.jpg",
+          "alt": "A meditating figure on a rock, linked by light to scenes of sleep, healthy food, yoga, stacked stones, breathing and an offering"
+        }
       }
     ]
   },
@@ -1809,7 +1881,11 @@
             "type": "emphasis",
             "text": "It can make us more awake to life."
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-19.jpg",
+          "alt": "People climbing glowing steps from grief and the shadow of death towards a doorway of light, a meditating figure shining above"
+        }
       },
       {
         "type": "heading",
@@ -1838,7 +1914,11 @@
             "type": "paragraph",
             "text": "The movement is towards complete freedom through understanding and surrender."
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-20.jpg",
+          "alt": "Figures of struggle crumbling away behind a figure meditating in golden light above a waterfall"
+        }
       },
       {
         "type": "heading",
@@ -1875,7 +1955,11 @@
             "type": "emphasis",
             "text": "Without telling anyone."
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-21.jpg",
+          "alt": "One lamp lighting many others, streams of light flowing between them across waterfalls and lotuses"
+        }
       },
       {
         "type": "heading",
@@ -1927,7 +2011,11 @@
             "type": "paragraph",
             "text": "It is the possibility of recognising what is already fundamental."
           }
-        ]
+        ],
+        "image": {
+          "src": "/images/chapter-22.jpg",
+          "alt": "A circle of glowing scenes, a tree, a doorway, a seedling and a path, around a lamp, with a path of light leading to a radiant summit"
+        }
       }
     ]
   },

@@ -28,8 +28,18 @@ export function Accordion({ block }) {
           </span>
         </button>
       </h3>
-      <div id={panelId} role="region" aria-labelledby={btnId} className="acc-panel" hidden={!open}>
-        <BlockRenderer blocks={block.blocks} />
+      <div id={panelId} role="region" aria-labelledby={btnId} className={`acc-panel${block.image ? ' has-image' : ''}`} hidden={!open}>
+        {block.image ? (
+          <>
+            {/* text on the left, illustration on the right */}
+            <div className="acc-text">
+              <BlockRenderer blocks={block.blocks} />
+            </div>
+            <BlockRenderer blocks={[{ type: 'image', ...block.image }]} />
+          </>
+        ) : (
+          <BlockRenderer blocks={block.blocks} />
+        )}
       </div>
     </div>
   );

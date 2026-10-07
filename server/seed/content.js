@@ -24,10 +24,37 @@ const PENDING = (text) => ({ type: 'pending', text });
 const CRISIS = '/crisis-support';
 const part = (n, ch) => `/the-journey-part-${n}${ch ? `#chapter-${ch}` : ''}`;
 
+// Illustrations shown under a chapter title (files in client/public/images/).
+const CHAPTER_IMAGES = {
+  1: { src: '/images/chapter-1.jpg', alt: 'A figure meditating in golden light above mountains, a glowing path flowing from the heart' },
+  2: { src: '/images/chapter-2.jpg', alt: 'A meditating figure on a rock with glowing roots, surrounded by people and clouds in golden light' },
+  3: { src: '/images/chapter-3.jpg', alt: 'A woman meditating on a mountain peak in golden light, a dark cloud of worry drifting away' },
+  4: { src: '/images/chapter-4.jpg', alt: 'A figure meditating on a rock in golden light, ringed by glowing lotuses, a stream of light flowing into still water' },
+  5: { src: '/images/chapter-5.jpg', alt: 'A meditating figure with a radiant heart, surrounded by glowing spheres holding a lotus, books, a mirror, a mind and flowing wind' },
+  6: { src: '/images/chapter-6.jpg', alt: 'A calm meditating figure amid swirling clouds of thought: a storm, a wave, a broken heart, a clock and an open doorway' },
+  7: { src: '/images/chapter-7.jpg', alt: 'A meditating figure in golden light, surrounded by clouds of fear, anger and grief, with glowing lotuses blooming below' },
+  8: { src: '/images/chapter-8.jpg', alt: 'A robed figure walking through a glowing doorway towards a sunlit valley, leaving behind figures weighed down by anger and stone' },
+  9: { src: '/images/chapter-9.jpg', alt: 'A meditating figure at the centre of glowing circles showing treasure, a crown, a trophy and a summit, a path of light winding below' },
+  10: { src: '/images/chapter-10.jpg', alt: 'A meditating figure beneath three golden arches of love, nature and music, linked by light to scenes of couples, family and a lotus' },
+  11: { src: '/images/chapter-11.jpg', alt: 'A golden landscape rising in layers, from flowers and a violin by a stream, to a figure resting under a tree, to a figure meditating beneath the sun' },
+  12: { src: '/images/chapter-12.jpg', alt: 'Waterfalls flowing down through three glowing circles, a mountain, a lotus and a stream, into a calm sea at sunset' },
+  13: { src: '/images/chapter-13.jpg', alt: 'A crumbling stone fist beside an open hand of stone, water pouring into the open hand from a golden lotus above' },
+  14: { src: '/images/chapter-14.jpg', alt: 'A figure meditating with a glowing heart, a chariot and archers in the clouds, a hand releasing leaves and a stairway leading to light' },
+  15: { src: '/images/chapter-15.jpg', alt: 'A devotee holding a glowing heart, surrounded by offerings of fruit, flowers and lamps, with a flute and a heart of light above' },
+  16: { src: '/images/chapter-16.jpg', alt: 'A snake and a coiled rope lying on a path by a lit lamp among old ruins, a meditating figure glowing in the distance' },
+  17: { src: '/images/chapter-17.jpg', alt: 'A cracked clay pot pouring golden light upwards into a lotus, a heart and a meditating figure, beside a stream with lotuses' },
+  18: { src: '/images/chapter-18.jpg', alt: 'A meditating figure on a rock, linked by light to scenes of sleep, healthy food, yoga, stacked stones, breathing and an offering' },
+  19: { src: '/images/chapter-19.jpg', alt: 'People climbing glowing steps from grief and the shadow of death towards a doorway of light, a meditating figure shining above' },
+  20: { src: '/images/chapter-20.jpg', alt: 'Figures of struggle crumbling away behind a figure meditating in golden light above a waterfall' },
+  21: { src: '/images/chapter-21.jpg', alt: 'One lamp lighting many others, streams of light flowing between them across waterfalls and lotuses' },
+  22: { src: '/images/chapter-22.jpg', alt: 'A circle of glowing scenes, a tree, a doorway, a seedling and a path, around a lamp, with a path of light leading to a radiant summit' },
+};
+
 // A chapter = sub-heading (with an anchor for deep links) + one accordion.
+// If the chapter has an illustration, it is shown inside the accordion, to the right of the text.
 const CHAPTER = (num, title, question, blocks, open = false) => [
   H(title, `chapter-${num}`),
-  ACC(question, blocks, open),
+  { ...ACC(question, blocks, open), ...(CHAPTER_IMAGES[num] ? { image: CHAPTER_IMAGES[num] } : {}) },
 ];
 
 export const pages = [

@@ -91,6 +91,20 @@ export function Book({ block }) {
   );
 }
 
+// Illustration (e.g. under a chapter title). Click to see it full-size.
+export function ImageBlock({ block }) {
+  const [zoom, setZoom] = useState(false);
+  return (
+    <figure className="b-image">
+      <button type="button" className="b-image-btn" onClick={() => setZoom(true)} aria-label="Enlarge image">
+        <img src={block.src} alt={block.alt || ''} width="800" height="1200" loading="lazy" decoding="async" />
+        <span className="b-book-hint">Click to enlarge</span>
+      </button>
+      {zoom && <Lightbox src={block.src} alt={block.alt || ''} onClose={() => setZoom(false)} />}
+    </figure>
+  );
+}
+
 // About intro with photo (placeholder if no photo is set).
 export function Photo({ block }) {
   return (
