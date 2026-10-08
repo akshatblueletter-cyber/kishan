@@ -45,6 +45,7 @@ function collectTexts(page) {
           push(c.title);
           walk(c.blocks);
         });
+      if (b.head) walk(b.head);
       if (b.blocks) walk(b.blocks);
     }
   };

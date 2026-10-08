@@ -7,29 +7,52 @@
   overflow: hidden;
   background-color: #e9c48e; /* warm tone shown while the image loads */
   background-size: cover;
-  background-position: center 60%; /* keep the mountain range in view */
+  background-position: center 60%; /* keep the lotus in view */
   background-repeat: no-repeat;
 }
+/* Frosted-glass card: as wide as its lines, the image glowing softly through it */
 .landing-card {
   position: absolute;
   left: 50%;
-  top: 40%;
+  top: 36%;
   transform: translate(-50%, -50%);
-  width: min(760px, calc(100% - 32px));
-  padding: 50px 56px;
-  border-radius: 32px;
-  background: rgba(250, 248, 243, 0.88);
-  backdrop-filter: blur(4px);
+  width: max-content;
+  max-width: calc(100% - 32px);
+  padding: 44px 64px 40px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: linear-gradient(180deg, rgba(255, 251, 244, 0.22), rgba(255, 244, 228, 0.14)); /* no blur: the image shows clearly through */
+  text-shadow: 0 0 14px rgba(255, 248, 236, 0.85), 0 0 2px rgba(255, 248, 236, 0.6); /* soft glow keeps the text readable */
   text-align: center;
   font-family: var(--serif);
-  font-size: 48px;
-  line-height: 1.2;
+  font-size: 44px;
+  line-height: 1.18;
   color: var(--panel);
-  box-shadow: 0 30px 60px -40px rgba(80, 50, 10, 0.55);
+  box-shadow:
+    0 34px 80px -34px rgba(70, 40, 5, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
 }
+.landing-card p {
+  white-space: nowrap; /* each line stays on one row (“Many questions.”, “An evolving body of work.”) */
+}
+/* closing line, set apart by a short gold rule */
 .landing-card .is-last {
+  margin-top: 18px;
+  padding-top: 20px;
+  position: relative;
   font-style: italic;
   color: var(--peach-text);
+}
+.landing-card .is-last::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 56px;
+  height: 2px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, #c8893f, transparent);
 }
 .landing-cta {
   position: absolute;
@@ -67,13 +90,17 @@
 @media (max-width: 900px) {
   .landing {
     min-height: 560px;
-    background-position: 40% center;
+    background-position: center center; /* lotus stays in the middle on phones */
   }
   .landing-card {
-    top: 40%;
-    padding: 28px 22px;
-    border-radius: 24px;
-    font-size: 30px;
+    top: 38%;
+    padding: 24px 18px 22px;
+    border-radius: 22px;
+    font-size: clamp(18px, 6vw, 30px); /* shrinks on small phones so no line has to break */
+  }
+  .landing-card .is-last {
+    margin-top: 12px;
+    padding-top: 14px;
   }
   .landing-cta {
     bottom: 32px;

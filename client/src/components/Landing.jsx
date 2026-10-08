@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import Icon from './Icon.jsx';
 import { nextStepOf, stepPath, useSteps } from '../context/StepsContext.jsx';
 
-// Background image of the home page (client/public/images/landing.jpg).
-const BACKGROUND = '/images/landing.jpg';
+// Background image of the home page (client/public/images/home.jpg): golden lotus on water.
+const BACKGROUND = '/images/home.jpg';
 
 // Page 1: full-width mountain background · centre card · button to step 2.
 export default function Landing({ page }) {

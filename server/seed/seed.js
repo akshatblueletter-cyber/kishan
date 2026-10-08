@@ -20,6 +20,7 @@ function validate() {
     blocks.forEach((b, i) => {
       const at = `${where} › block ${i + 1}`;
       if (!b || !BLOCK_TYPES.includes(b.type)) errors.push(`${at}: unknown block type “${b?.type}”`);
+      if (b.head) walk(b.head, `${at} (${b.type} head)`);
       if (b.blocks) walk(b.blocks, `${at} (${b.type})`);
       b.cards?.forEach((c, j) => walk(c.blocks || [], `${at} › card ${j + 1} “${c.title}”`));
       b.columns?.forEach?.((c, j) => walk(c.blocks || [], `${at} › column ${j + 1} “${c.title}”`));

@@ -161,10 +161,10 @@
   }
   .header-title {
     font-size: 19px;
-    white-space: normal; /* phones: title may use two lines */
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+    white-space: normal; /* phones: the full title shows, wrapping onto more lines if needed */
+    overflow: visible;
+    text-overflow: clip;
+    text-wrap: balance; /* keeps the lines roughly even */
   }
   .header-subtitle {
     display: none;
@@ -181,7 +181,29 @@
   }
 }
 @media (max-width: 480px) {
+  /* Small phones: smaller title and buttons so the whole title fits in the header */
+  .header {
+    gap: 8px;
+  }
   .header-title {
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 1.15;
+  }
+  .header-actions {
+    gap: 6px;
+  }
+  .header-actions .icon-btn {
+    width: 38px;
+    height: 38px;
+  }
+}
+@media (max-width: 360px) {
+  /* Very small phones (e.g. 320px): a little more room for the title */
+  .header-title {
+    font-size: 12.5px;
+  }
+  .logo {
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
   }
 }

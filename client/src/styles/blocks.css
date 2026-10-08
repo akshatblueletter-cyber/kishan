@@ -763,6 +763,35 @@ a.b-guide-link:hover {
 .b-book-zoom:hover .b-book-cover {
   transform: translateY(-3px);
 }
+/* Book with a head (first major work): title + subtitle on top,
+   then front and back covers side by side, then the text */
+.b-book.is-stacked {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+}
+.b-book-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+.b-book.is-stacked .b-book-figure {
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 28px;
+}
+.b-book.is-stacked .b-book-zoom {
+  flex: 0 1 250px;
+  min-width: 0;
+}
+.b-book.is-stacked .b-book-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 250 / 357;
+}
 .b-book-hint {
   position: absolute;
   left: 50%;
@@ -805,6 +834,7 @@ a.b-guide-link:hover {
   object-fit: cover;
   border-radius: var(--radius-lg);
   box-shadow: 0 28px 48px -26px rgba(80, 50, 10, 0.55);
+  filter: brightness(0.9) saturate(0.7) contrast(0.95); /* tone the bright illustrations down to sit calmly beside the text */
   transition: transform 0.2s;
 }
 .b-image-btn:hover img {
@@ -1088,35 +1118,70 @@ a.b-guide-link:hover {
 @media (max-width: 900px) {
   .b-lines,
   .b-reflection-lines {
-    font-size: 21px;
+    font-size: 20px;
   }
   .b-em {
     font-size: 20px;
   }
+  /* Phones: tighter text and spacing */
+  .b-h2 {
+    font-size: 28px;
+    margin: 14px 0 0;
+  }
+  .b-p {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  .acc-panel .b-p {
+    font-size: 16px;
+  }
+  /* Question list (step 2): compact rows, number · question · arrow on one centre line */
   .b-ql-item {
-    grid-template-columns: 36px 1fr 36px;
-    font-size: 20px;
+    grid-template-columns: 30px 1fr 30px;
+    column-gap: 10px;
+    padding: 11px 0;
+    font-size: 19px;
+    line-height: 1.3;
+  }
+  .b-ql-arrow {
+    width: 30px;
+    height: 30px;
   }
   .acc-btn {
-    grid-template-columns: 40px 1fr 40px;
-    padding: 16px 0;
+    grid-template-columns: 34px 1fr 36px;
+    column-gap: 6px;
+    padding: 14px 0;
   }
   .acc-num,
   .acc-q {
-    font-size: 21px;
+    font-size: 20px;
   }
+  .acc-chev {
+    width: 32px;
+    height: 32px;
+  }
+  /* Phones: no indent inside an open accordion, so the text, image and boxes
+     line up with the chapter heading and the question number */
   .acc-panel {
-    padding: 0 0 22px 40px;
+    padding: 0 0 18px;
+    gap: 10px;
+  }
+  .b-reflection {
+    padding: 18px 18px;
+    gap: 8px;
+  }
+  .b-reflection-lines {
+    gap: 4px;
   }
   /* phones: illustration above the text */
   .acc-panel.has-image:not([hidden]) {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 14px;
   }
   .acc-panel.has-image .b-image {
     position: static;
     order: -1;
-    margin: 0 0 0 -40px; /* use the full width, not just the indented text column */
+    margin: 0;
   }
   .acc-panel.has-image .b-image-btn {
     width: 85%;
@@ -1128,8 +1193,8 @@ a.b-guide-link:hover {
     object-position: center 40%;
   }
   .b-quote {
-    font-size: 22px;
-    padding: 20px 22px;
+    font-size: 21px;
+    padding: 18px 18px;
   }
   .b-cards,
   .b-cards.cols-3,
@@ -1158,6 +1223,15 @@ a.b-guide-link:hover {
   .b-book-cover {
     width: 200px;
     height: 286px;
+  }
+  .b-book.is-stacked {
+    gap: 20px;
+  }
+  .b-book.is-stacked .b-book-figure {
+    gap: 12px;
+  }
+  .b-book-head .b-h3 {
+    font-size: 28px;
   }
   .b-emergency-number {
     font-size: 44px;

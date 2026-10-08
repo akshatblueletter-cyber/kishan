@@ -65,7 +65,7 @@ export const pages = [
     subtitle: 'Ancient Wisdom · Modern Science · Lived Experience',
     nextLabel: 'Understanding the Human Journey',
     blocks: [
-      LINES('One journey. Many questions.', 'Many perspectives.', 'An evolving body of work.'),
+      LINES('One journey.', 'Many questions.', 'Many perspectives.', 'An evolving body of work.'),
     ],
     seo: {
       title: 'Krishan Avtar · Understanding the Human Journey',
@@ -389,9 +389,11 @@ export const pages = [
     blocks: [
       {
         type: 'book', image: '/images/book-front.jpg', backImage: '/images/book-back.jpg',
-        blocks: [
+        // Title on top, then the covers side by side (front left, back right), then the text.
+        head: [
           H3('The Journey: From Suffering to Bliss'),
-          EM('In the Light of Sacred Wisdom, Modern Science and Lived Experience'),
+        ],
+        blocks: [
           ...P('Every journey begins with a question.', 'The question here is:'),
           EM('Can we understand suffering deeply enough that it no longer has to define our inner life?'),
           ...P('The book begins with suffering but does not end there.', 'It moves through:'),

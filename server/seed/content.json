@@ -11,7 +11,8 @@
       {
         "type": "lines",
         "items": [
-          "One journey. Many questions.",
+          "One journey.",
+          "Many questions.",
           "Many perspectives.",
           "An evolving body of work."
         ]
@@ -841,16 +842,14 @@
         "type": "book",
         "image": "/images/book-front.jpg",
         "backImage": "/images/book-back.jpg",
-        "blocks": [
+        "head": [
           {
             "type": "heading",
             "level": 3,
             "text": "The Journey: From Suffering to Bliss"
-          },
-          {
-            "type": "emphasis",
-            "text": "In the Light of Sacred Wisdom, Modern Science and Lived Experience"
-          },
+          }
+        ],
+        "blocks": [
           {
             "type": "paragraph",
             "text": "Every journey begins with a question."

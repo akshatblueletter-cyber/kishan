@@ -63,6 +63,8 @@ export function Timeline({ block }) {
 }
 
 // Book: front cover, with the back cover (if any) below it, + text.
+// With a `head` (title + subtitle): the head on top, then the covers side by side
+// (front left, back right), then the text.
 // Clicking a cover opens it full-size so the back-cover text can be read.
 export function Book({ block }) {
   const [zoom, setZoom] = useState(null); // the cover being viewed full-size
@@ -72,7 +74,12 @@ export function Book({ block }) {
   ].filter((c) => c.src);
 
   return (
-    <div className="b-book">
+    <div className={`b-book${block.head ? ' is-stacked' : ''}`}>
+      {block.head && (
+        <div className="b-book-head">
+          <BlockRenderer blocks={block.head} />
+        </div>
+      )}
       {covers.length > 0 && (
         <div className="b-book-figure">
           {covers.map((cover) => (
